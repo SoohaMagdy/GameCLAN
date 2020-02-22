@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+import {FormControl,FormGroup ,Validator, FormControlName, Validators} from '@angular/forms'
+
+@Component({
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss']
+})
+
+export class ContactComponent implements OnInit {
+  
+  myForm = new FormGroup({
+    "name": new FormControl('',[
+      Validators.required,
+      Validators.maxLength(10),
+      Validators.minLength(3)
+    ]),
+    "email": new FormControl('',[
+      Validators.required
+    ]),
+    "message": new FormControl('',[
+      Validators.required
+    ])
+  })
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

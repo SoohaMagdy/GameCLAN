@@ -1,0 +1,39 @@
+<section id="contact" class="bg-dark">
+    <div class="container py-5">
+        <div class="contactus text-center">
+            <h2 class="text-muted">CONTACT US</h2>
+            <h4 class="text-muted">Get in touch for more updates</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-data text-white text-left p-5">
+                        <p>Drop us a email with your Gamer Nick and we will schedule your Live match with one of our
+                            clan member.</p>
+                        <p>Game On - GO PRO</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-form py-5">
+                        <form [formGroup] = "myForm">
+                            <input required maxlength="10" minlength="3" formControlName= "name" class="form-control my-3 bg-dark p-2"
+                                placeholder="Enter Name">
+                                <div *ngIf="myForm.controls.name.touched && myForm.controls.name.errors != null">
+                                    <div *ngIf="myForm.controls.name.errors.required" class="alert alert-danger text-left">Username is required</div>
+                                    <div *ngIf="myForm.controls.name.errors.minlength" class="alert alert-danger text-left">Min Length is 3</div>
+                                </div>
+                            <input class="form-control my-3 bg-dark p-2" formControlName= "email" placeholder="Enter Email">
+                            <div *ngIf="myForm.controls.email.touched && myForm.controls.email.errors != null">
+                                <div *ngIf="myForm.controls.email.errors.required" class="alert alert-danger text-left">Email is required</div>
+                            </div>
+                            <textarea class="form-control my-3 bg-dark" formControlName= "message" placeholder="Enter Message" rows="6"></textarea>
+                            <div *ngIf="myForm.controls.message.touched && myForm.controls.message.errors != null">
+                                <div *ngIf="myForm.controls.message.errors.required" class="alert alert-danger text-left">Message is required</div>
+                            </div>    
+                        </form>
+                        <button class="btn btn-light bg-dark text-white float-left">Submit</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
